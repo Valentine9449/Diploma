@@ -1,0 +1,35 @@
+{% extends 'app/admin_mail.html' %}
+
+{% block main %}
+
+{% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" container alert alert-success text-center w-25">
+          {{ message }}
+        </div>
+      {% endif %}
+     {% endfor %}
+{% endif %}
+
+
+{% if more_mail %}
+<div class="h-100 d-flex align-items-center justify-content-center mt-5">
+	Ім'я: {{ more_mail.first_name }}<br>
+	Прізвище: {{ more_mail.last_name }}<br>
+	Телефон: {{ more_mail.number }} <br>
+	Повідомлення:<br>
+	{{ more_mail.full_text }}<br>
+	<br>
+	{{ more_mail.created }}<br>
+
+</div>
+
+<div class="col-md-12 text-center mt-3">
+	<a class="btn btn-success float-center" style="color:white;" href="{% url 'station:mail_accept' more_mail.id %}">Прийняти</a>
+</div>
+
+{% endif %}
+
+
+{% endblock main %}

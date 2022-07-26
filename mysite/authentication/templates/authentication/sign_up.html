@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Реєстрація | Sunline</title>
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+    <div class=" container alert alert-danger text-center w-25">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+    <h2 style="margin-top: 30px;" class="h2_login text-center">Реєстрація</h2>
+
+    <form method="post" action="{{ auth_url }}" style="width: 500px; margin: auto">
+        {% csrf_token %}
+
+
+        <label for="first_name">Ім'я</label>
+        <input type="text" name="first_name" class="form-control" id="first_name" autocomplete="off">
+
+        <label for="last_name">Прізвище</label>
+        <input type="text" name="last_name" class="form-control" id="last_name" autocomplete="off">
+
+        <label for="username">Ім'я користувача</label>
+        <input type="text" name="username" class="form-control" id="username" autocomplete="off">
+        <label for="password">Пароль</label>
+        <input type="password" name="password" class="form-control" id="password" autocomplete="off">
+
+        <label for="email">Пошта</label>
+        <input type="email" name="email" class="form-control" id="email" autocomplete="off">
+
+        <label for="dob">День народження</label>
+        <input type="date" name="dob" class="form-control" id="dob" autocomplete="off">
+
+        <br>
+
+        <div class="text-center">
+
+            <button class="btn btn-primary">
+                Реєстрація
+            </button>
+        </div>
+
+    </form>
+
+</body>
+</html>
+
+

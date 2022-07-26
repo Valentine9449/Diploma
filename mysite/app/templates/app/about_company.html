@@ -1,0 +1,53 @@
+{% extends 'app/sunline.html' %}
+
+{% load static %}
+
+{% block title %}
+	Мережа обслуговування Sunline | Про компанію
+{% endblock title %}
+
+
+{% block slider %}
+{% endblock slider %}
+
+{% block main %}
+<div class="container mt-3">
+	<h2 class="text-center">Про нас</h2>
+	<p>Компанія Sunline спеціалізується на обслуговуванні та ремонту автозаправних станцій. У нас працюють досвідчені спеціалісти, які знають свою справу.</p>
+	<div class="row">
+		
+	  <div class="col-md-6">
+	  	<img class="w-100 p-3 float-right" src="{% static "app/img/remont-kompresora-ukraina.jpg" %}"/>
+	  </div>
+
+	  <div class="col-md-6">
+	  	<img class="w-100 p-3 float-right" src="{% static "app/img/repair-azs.jpg" %}"/>
+	  </div>
+
+	</div>
+
+
+	<figure class="text-center">
+	  <blockquote class="blockquote">
+	    <p>Якість пального залежить від якості обладнання.</p>
+	  </blockquote>
+	  <figcaption class="blockquote-footer">
+	    <cite title="Source Title">Sunline</cite>
+	  </figcaption>
+	</figure>
+
+	<p>
+	Ми понад 14 років надаємо послуги комплексної технічної підтримки комерційної нерухомості в усіх напрямках, оперативно виїжджаємо на об'єкт та приймаємо аварійні заявки 24/7. Для наших клієнтів ми надаємо повний спектр необхідних технічних послуг незалежно від регіону України, де знаходиться об'єкт. Все, що потрібно - тільки залишити заявку з описом завдання або проблеми (у диспетчерській службі або на сайті), і в найкоротший термін бригада буде на місці з усіма необхідними інструментами та матеріалами.
+	Офіс в кожному місті нашої країни. Понад 8000 клієнтів. Sunline - це досвід роботи понад 14 років.
+
+	</p>
+
+	<a class="btn btn-secondary btn-lg mb-3" href="{% url 'station:service'%}#requestform">Залишити заявку</a>
+
+</div>
+
+{% endblock main %}
+
+{% block nav_links %}
+{% endblock nav_links %}
+

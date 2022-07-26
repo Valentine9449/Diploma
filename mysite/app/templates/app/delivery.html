@@ -1,0 +1,40 @@
+{% extends 'app/sunline.html' %}
+
+{% load static %}
+
+{% block nav_links %}
+{% endblock nav_links %}
+
+{% block slider %}
+{% endblock slider %}
+
+{% block main %}
+
+
+<div class="container">
+	<h2>Доставка паливороздатного обладнання перевізником - БЕЗКОШТОВНО по всій Україні!</h2>
+<hr>
+	<div class="row">
+		
+	  <div class="col-md-4" style="margin-right:15%; margin-left:10%;">
+	  	<h3>Способи доставки:</h3>
+	  	<ul class="list-group p-3">
+		  <li class="list-group-item">Самовивіз</li>
+		  <li class="list-group-item">Доставка кур'єром<img class="w-25 p-3 float-right" src="{% static "app/img/courier.png" %}"/></li>
+		  <li class="list-group-item">Доставка поштою<img class="w-25 p-3 float-right" src="{% static "app/img/dostavka.png" %}"/></li>
+		  <li class="list-group-item">Нова пошта<img class="w-25 p-3 float-right" src="{% static "app/img/nova.png" %}"/></li>
+		  <li class="list-group-item">Укрпошта<img class="w-25 p-3 float-right" src="{% static "app/img/ukrmail.png" %}"/></li>
+		</ul>
+	  </div>
+
+	  <div class="col-md-4">
+	  	<h3>Способи оплати:</h3>
+	  	<ul class="list-group p-3">
+		  <li class="list-group-item">Оплата карткою<img class="w-25 p-3 float-right" src="{% static "app/img/payment.png" %}"/></li>
+		  <li class="list-group-item">Оплата готівкою<img class="w-25 p-3 float-right" src="{% static "app/img/pri_otrimanni.png" %}"/></li>
+		</ul>
+	  </div>
+
+	</div>
+</div>
+{% endblock main %}

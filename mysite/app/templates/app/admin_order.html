@@ -1,0 +1,74 @@
+{% extends 'app/admin_mail.html' %}
+
+
+{% block title %}
+Замовлення
+{% endblock %}
+
+  
+
+
+{% block main %}
+<div class="container mt-5">
+
+{% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" container alert alert-success text-center w-25">
+          {{ message }}
+        </div>
+      {% endif %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class=" container alert bg-danger text-white text-center w-25">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %} 
+  {% endif %}
+
+
+{% if order %}
+<h2>Замовлення</h2>
+
+<table class="table">
+  <thead>
+	  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Користувач</th>
+      <th scope="col">Товар</th>
+      <th scope="col">Ціна</th>
+      <th scope="col">Дата</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+    {% for orders in order %}
+  <tbody>
+    <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+  	<th scope="row">{{ orders.user }}</th>
+  	<th scope="row">{{ orders.name }}</th>
+  	<th scope="row">{{ orders.price }}</th>
+  	<th scope="row">{{ orders.created }}</th>
+  	<th><a href="{% url 'station:order_accept' orders.id %}" class="btn btn-success">Прийняти</a></th>
+    <th>
+      
+    <form action="{% url 'station:order_delete' orders.id %}">
+        <input type="submit" class="btn btn-danger" value="Видалити"
+          onclick="return confirm('Видалити замовлення користувача {{ orders.user }}?')"/>
+    </form>
+
+    </th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% else %}
+<h2>Замовлень немає</h2>
+{% endif %}
+
+</div>
+
+
+{% endblock main %}

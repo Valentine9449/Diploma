@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap');
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ html, body{
+    width: 100%;
+    height: 100%;
+    background: #222;
+    color: white;
+}
+
+
+    /*background: url("/static/app/img/gas-station-two.jpg") no-repeat center center fixed;
+    background-size: cover;*/
+
+
+.container-slider{
+	width: 100%;
+	height: 55vh;
+	
+	display: flex;
+	align-items: top;
+	justify-content: top;
+}
+
+
+
+/*.container-slider img{
+	opacity:0.9;
+	-moz-opacity:0.2;
+	filter: alpha(opacity=80) black;
+	-khtml-opacity: 0.9;
+	background-color:#000;
+
+}*/
+
+
+.container-slider .slider-image-num-1 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  color: black;
+  position: absolute;
+  left: 2%;
+  bottom: 20%;
+  width: 100%;
+}
+
+
+
+.container-slider .slider-image-num-2{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  color: black;
+  position: absolute;
+  left: 15%;
+  bottom: 60%;
+  width: 100%;
+}
+
+
+.container-slider .slider-image-num-3{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  color: black;
+  position: absolute;
+  left: 15%;
+  bottom: 60%;
+  width: 100%;
+}
+
+
+.container-slider h1:hover {
+	color: white;
+}
+
+
+.swiper{
+	width: 100%;
+	height: fit-content;
+	border-radius: 5px;
+}
+
+.swiper-slide img{
+	width: 100%;
+}
+
+
+/***** Second block *****/
+
+.block-one h3{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+	margin-top: 20px;
+	font-size: 32px;
+	text-align: center;
+	margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+.white-block{
+  margin-top: 5%;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.centerOK{
+  margin: 5% 0 0 0;
+  background-color: white;
+  padding-top: 30px;
+  padding-left: 25%;
+  text-align: center;
+  color: black;
+
+}
+
+.centerOK img{
+ border-radius: 5px;
+}
+
+
+.about-us{
+  margin: 0 0 0 0;
+  padding: 3% 0 150px 0;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.about-us p{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+.wrap {
+  width: 1310px;
+  margin: 40px auto;
+  height: 260px;
+}
+ 
+.bblock {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  float: left;
+  line-height: 120px;
+
+  color: white;
+  width: 320px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+
+.wrap :last-child {
+  margin-right: 0px;
+}
+
+.bblock img{
+  width: 240px;
+  height: 240px;
+  border-radius: 10%;
+}
+
+
+.last-div{
+  height: 60%;
+  background: url("/static/app/img/gas-station-two.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+.last-div h2{
+  text-align: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  padding-top: 20px;
+}
+
+.main
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+
+.main__item
+{
+  background: orange;
+  padding: 10px;
+  margin-right: 5px;
+}

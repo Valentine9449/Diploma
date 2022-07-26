@@ -1,0 +1,122 @@
+{% load static %}
+
+{% block link %}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anek+Bangla:wght@100;200;400&family=Indie+Flower&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+{% endblock %}
+
+
+{% block title %}
+<title>Головна</title>
+{% endblock %}
+
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-second">
+  
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'gas-station:index'%}">⛽BENZOK</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'gas-station:about_us'%}">Про нас</a>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Профіль
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Замовлення</a>
+          <a class="dropdown-item" href="{% url 'gas-station:profile'%}">Особистий кабінет</a>
+        </div>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Паливо
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'gas-station:prices'%}">Ціни</a>
+          <a class="dropdown-item" href="#">Талони</a>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+
+
+
+{% block main %}
+
+
+<div class="container">
+
+<br>
+
+  <p>Автозаправна станція Benzok заправляє Ваші автомобілі тільки якісним пальним ось вже 29 років. Мільйони українців задоволені якістю пального. Почніть заправляти свої автівки паливом автозаправної станції Benzok!</p>
+
+
+
+  <h2 class="d-flex justify-content-center">Відновіть свої сили у дорозі</h2>
+  <div class="d-flex justify-content-center">
+    <h5 class="reklama-h5">Бадьорою <br> кавою</h5>
+    <img  style="width: 180px; height: 190px;" src="{% static "app/img/coffee.png" %}" alt="home" />
+    <h5 class="reklama-h5">Смачним <br> гамбургером</h5>
+    <img  style="width: 180px; height: 160px;" src="{% static "app/img/gamburger.png" %}" alt="home" />
+  </div>
+
+  <p>На наших АЗС Ви зможете скористатись послугами магазину, у якому є все необхідне для комфортної подорожі – від продовольчих товарів до аксесуарів для Вашого авто. А у наших кафе Ви можете смачно перекусити і посмакувати улюбленою кавою.</p>
+
+  <h2 class="d-flex justify-content-center">Автомийка</h2>
+  <div class="d-flex justify-content-center">
+    <img  style="width: 400px;" src="{% static "app/img/frist-car-wash.png" %}" alt="home" />
+  </div>
+
+  <p>На наших АЗС Ви зможете скористатись послугами автомийки. На кожній станції присутня послуга автомийки. Ми дбаємо про те, щоб наші клієнти пересувались на дзеркально чистих засобів транспорту.</p>
+</div>
+
+<br>
+<br>
+
+{% endblock %}
+
+
+
+
+{% block footer %}
+
+<footer class="page-footer font-small">
+
+  <div class="footer-copyright text-center py-3">© 2022 Copyright
+  </div>
+
+</footer>
+
+
+{% endblock %}

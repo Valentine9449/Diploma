@@ -1,0 +1,56 @@
+{% extends 'app/sunline.html' %}
+{% load static %}
+
+{% block title %}
+Мережа обслуговування Sunline | Помпи
+{% endblock title %}
+
+
+{% block slider %}
+{% endblock slider %}
+
+{% block main %}
+
+<div class="container" style="margin-top: 30px; margin-bottom: 8%;">
+	<div class="row">
+	{% for content in objects %}
+	<hr>
+
+		<div class="card" style="width: 13rem;">
+		  {% if content.image %}
+			    	<img src =" {{ content.image.url }}" width="80px">
+			    	{% else %}
+						<img src="{% static "app/img/image-not-found.png" %}" width="80px">
+			    	{% endif %}
+		  <div class="card-body">
+		    <h5 class="card-title">{{ content.name }}</h5>
+		    <p class="card-text">{{ content.price }} грн.</p>
+
+		  </div>
+		  <div class="card-footer">
+		    <a href="{% url 'station:about_product' content.slug %}">Детальніше</a>
+          </div>
+		</div>
+
+
+  {% endfor %}
+  </div>
+</div>
+
+
+
+<nav aria-label="Page navigation example">
+	<ul class="pagination justify-content-center">
+		{% for p in objects.paginator.page_range %}
+		{% if objects.number == p %}
+		<li class="page-item active"><a class="page-link" href="?page={{ p }}"> {{ p }}</a> </li>
+		{% else %}
+		<li class="page-item">
+			<a class="page-link" href="?page={{ p }}">{{ p }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+</nav>
+
+{% endblock main %}

@@ -1,0 +1,110 @@
+{% extends 'app/sunline.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<br>
+{% if request.user.is_authenticated %}
+
+	{% if messages %}
+		{% for message in messages %}
+			{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+				<div class=" container alert alert-success text-center w-25">
+					{{ message }}
+				</div>
+			{% endif %}
+			{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+				<div class=" container alert bg-danger text-white text-center w-25">
+					{{ message }}
+				</div>
+			{% endif %}
+		{% endfor %} 
+	{% endif %}
+
+<div class="container mb-3">
+	<div class="row">
+		
+	  <div class="col-md-3" style="margin-right:10%; margin-left:10%;">
+		<div class="card">
+				{% if user.user.image %}
+					<img class="rounded-circle mx-auto d-block" src =" {{ user.user.image.url }}" width="170px">
+				{% else %}
+					<img class="rounded-circle mx-auto d-block" src="{% static "app/img/anonim.png" %}" width="170px">
+				{% endif %}
+				{% if user.first_name %}
+					<p class="text-center">{{ user.first_name }} {{ user.last_name }}</p>
+					<p class="text-center">{{ user.email }}</p>
+				{% else %}
+					<p class="text-center">{{ user.username }}</p>
+				{% endif %}
+				
+			  	<p class="text-center"><a href="{% url 'authentication:log_out' %}" class="btn btn-danger" role="button">Вийти</a></p>
+		</div>
+	</div>
+
+	  <div class="col-md-4">
+	  		
+		{% if not request.user.is_staff %}
+		<div class="row">
+			<div class="card" style="padding-left:80px; padding-right:80px;">
+				<h2>Ваші замовлення</h2>
+					
+						{% load cart_tag %}
+
+						<h5>Товару в корзині: {{request.session.cart|length}} </h5> 
+						<hr>
+						{% for key,value in request.session.cart.items %}
+							<p>Назва товару: {{value.name}}</p>
+							<p>Ціна: {{value.price}} грн. </p>
+							<p>Кількість даного товару: {{ value.quantity }} шт.</p>
+							<p>За цей товар: {{ value.price|multiply:value.quantity }} грн. </p>
+
+							<hr>
+						{% endfor %}
+						
+
+					{% for key,value in request.session.cart.items %}
+						<form action="{% url 'station:cart_complete' %}" method="POST">
+						  {%csrf_token%}
+							<input type="hidden" name="name"   value="{{value.name}}" />
+							<input type="hidden" name="price"  value="{{value.price}}" />
+					{% endfor %}
+							{% if request.session.cart.items %}
+								<button class="btn btn-success mb-3 w-100" type="submit">Підтвердити замовлення</button>
+							{% endif %}
+						</form>
+						
+					{% if request.session.cart.items %}
+						<form action="{% url 'station:cart_clear' %}">
+						    <input type="submit" class="btn btn-danger mb-3 w-100" value="Видалити"
+						        onclick="return confirm('Очистити кошик?')"/>
+						</form>
+					{% else %}
+						Кошик пустий
+					{% endif %}
+			</div>
+			{% endif %}
+	</div>
+	  </div>
+
+	</div>
+</div>
+
+
+
+
+{% else %}
+<div class="container">
+	<h2>Ви не авторизовані! Авторизуйтесь.</h2>
+	<a style="width: 15%;" href="{% url 'authentication:sing_in' %}" class="btn btn-info" role="button">Авторизація</a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block slider %}
+{% endblock slider %}
+
+
+{% block nav_links %}
+{% endblock nav_links %}

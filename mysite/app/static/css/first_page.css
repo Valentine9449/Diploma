@@ -1,0 +1,30 @@
+a:link {
+  text-decoration: none;
+}
+
+.wrap{
+	margin: 10px 10px 0 0;
+	width: 40%;
+	height: 50%;
+	display: inline-block;
+	border: 1px solid black;
+	border-color: rgb(213, 213, 213);
+	border-radius: 10px;
+}
+
+ul{
+	list-style: none;
+}
+
+.wrap h4{
+	padding-left: 10px;
+}
+
+.patten{
+	padding-left: 50%;
+	padding-top: 10%;
+}
+
+.contaner-bottom{
+	padding-bottom: 12%;
+}

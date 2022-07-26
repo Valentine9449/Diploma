@@ -1,0 +1,100 @@
+{% extends 'app/pumps.html' %}
+
+{% load static %}
+
+{% block title %}
+	Мережа обслуговування Sunline | Обслуговування
+{% endblock title %}
+
+{% block nav_links %}
+{% endblock nav_links %}
+
+{% block main %}
+
+<div class="container mt-3">
+
+
+{% if messages %}
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class=" container alert alert-success text-center w-25">
+          {{ message }}
+        </div>
+      {% endif %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class=" container alert bg-danger text-white text-center w-25">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %} 
+  {% endif %}
+
+
+
+	<h1>Ремонт автозаправних станцій</h1>
+	<p class="text-wrap font-italic" style="width: 40rem;">Обслуговування, ремонт та атестація відомчих АЗС, засобів вимірювальної техніки та складів паливно-мастильних матеріалів.</p>
+
+
+
+	<div class="row justify-content-center">
+
+			<div class="card mr-5" style="width: 20rem;">
+				<img src="{% static "app/img/flow_meter_piusi_k33.jpg" %}" width="80%">
+			  <div class="card-body">
+			    <h5 class="card-title">Ремонт лічильників рідини</h5>
+			    <p class="card-text">
+			    	<li>Метрологічна атестація на зразковому стенді</li>
+			    	<li>Паспортизація лічильників</li>
+			   </p>
+			  </div>
+			</div>
+
+
+			<div class="card mr-5" style="width: 20rem;">
+				<img src="{% static "app/img/42_w_360.jpg" %}" width="100%">
+			  <div class="card-body">
+			    <h5 class="card-title">Ремонт паливних колонок</h5>
+			    <p class="card-text">
+			    	<li>Монтаж</li>
+			    	<li>Реконструкція та ремонт паливороздавальних колонок</li>
+			    	<li>Паспортизація ТРК</li>
+			   </p>
+			  </div>
+			</div>
+
+			<div class="card" style="width: 20rem;">
+				<img src="{% static "app/img/MTM-A_козырек2_web-640x480.jpg" %}" width="100%">
+			  <div class="card-body">
+			    <h5 class="card-title">Обслуговування паливних резервуарів</h5>
+			    <p class="card-text">
+			    	<li>Калібрування</li>
+			    	<li>Зачистка</li>
+			    	<li>Виготовлення градуювальних таблиць</li>
+			    	<li>Паспортизація резервуарів</li>
+			   </p>
+			  </div>
+			</div>
+	</div>
+</div>
+
+<div class="container" id="requestform">
+	<h2 class="mt-4">Заповніть форму</h2>
+	<form method="POST">
+		{% csrf_token %}
+		<div class="row justify-content-center" style="margin-top:4%;">
+			  <div class="col-xs-2">
+				{{ form.first_name }}<br>
+				{{ form.last_name }}<br>
+				{{ form.number }}<br>
+				{{ form.services }}<br>
+				{{ form.full_text }}<br>
+				<span>{{ error }}</span>
+				<button class="btn btn-primary" type="submit">Відправити</button>
+			  </div>
+		</div>
+	</form>
+
+<h3 class="mt-4">Або зателефонуйте на гарячу лінію.</h3>
+</div>
+
+{% endblock main %}

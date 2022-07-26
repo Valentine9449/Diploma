@@ -1,0 +1,67 @@
+{% extends 'app/sunline.html' %}
+
+
+{% load static %}
+
+	{% block title %}
+		{% for object in queryset %}
+			{{ object.full_name }} | Sunline
+		{% endfor %}
+	{% endblock %}
+
+{% block main %}
+
+
+<div class="container mt-5 mb-5">
+
+	<div class="row">
+		
+	  <div class="col-md-4.5" style="margin-right:5%; margin-left:10%;">
+	  	<ul class="list-group p-3">
+		  <li class="list-group-item">
+		  	{% for value in queryset %}
+				{% if value.image %}
+	    			<img src =" {{ value.image.url }}" width="300px">
+	    		{% endif %}
+	    	{% endfor %}
+
+		  </li>
+
+		</ul>
+	  </div>
+
+	  <div class="col-md-4">
+	  	<ul class="list-group p-3">
+		  {% for value in queryset %}
+		  <li class="list-group-item">
+		  	Назва: {{ value.name }}
+		  </li>
+		  <li class="list-group-item">
+		  	Ціна: {{ value.price }} грн.
+		  </li>
+		  <li class="list-group-item">
+		  	Країна виробник: {{ value.country }}
+		  </li>
+		  
+		</ul>
+	    {% if request.user.is_authenticated and not request.user.is_staff %}
+			<a class="btn btn-primary ml-3" href="{% url 'station:cart_add' value.slug %}">Додати в кошик</a>
+		{% endif %}
+	  </div>
+	</div>
+		  {% if value.description %}
+	  		<h2 class="mt-5">Опис обладнання</h2>
+			{{ value.description }}
+		{% else %}
+			<h2  class="mt-5">Опис обладнання відсутній</h2>
+		{% endif %}
+	  {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+
+{% block slider %}
+{% endblock %}

@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% block links %}
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+	<link href="http://fonts.cdnfonts.com/css/led-digital-7" rel="stylesheet">
+                
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">            
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	{% endblock links %}
+
+	{% block title %}
+	<title>Мережа АЗС SunFuel - офіційний сайт</title>
+	{% endblock title %}
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+	        <a href="{% url 'station:index'%}" class="navbar-brand">SunFuel</a>
+	        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarMenu">
+	            <ul class="navbar-nav">
+      				<li class="nav-item">
+        				<a class="nav-link text-light" href="{% url 'station:about_us'%}">Про нас</a>
+      				</li>
+      				<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Профіль
+            			</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          					<a class="dropdown-item" href="#">Замовлення</a>
+          					<a class="dropdown-item" href="{% url 'station:profile'%}">Особистий кабінет</a>
+        				</div>
+        			</li>
+
+
+      				<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Паливо
+        				</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          					{# <a class="dropdown-item" href="{% url 'station:prices'%}">Ціни</a> #}
+          					<a class="dropdown-item" href="#">Талони</a>
+        				</div>
+        			</li>
+
+
+
+	            </ul>
+	        </div>
+    </nav>
+
+{% block slider %}
+
+<div class="container-slider">
+	<div class="swiper">
+
+	  <div class="swiper-wrapper">
+
+	    <div class="swiper-slide"><img src="{% static "app/img/first.jpg" %}"/>
+	    	<h1 class="slider-image-num-1">Обирай якісне пальне <br> на АЗС SunFuel</h1>
+	    </div>
+
+	    <div class="swiper-slide">
+	    	<img src="{% static "app/img/second.jpg" %}"/>
+	    	<h1 class="slider-image-num-2">АЗС SunFuel <br> заправляє ваші автівки тільки якісним пальним</h1>
+	    </div>
+
+	    <div class="swiper-slide">
+	    	<img src="{% static "app/img/firth.jpg" %}"/>
+	    	<h1 class="slider-image-num-3">Обирай якісне пальне</h1>
+	    </div>
+	  
+	  </div>
+
+	  <div class="swiper-pagination"></div>
+	  <div class="swiper-button-prev"></div>
+	  <div class="swiper-button-next"></div>
+
+	</div>
+</div>
+{% endblock slider %}
+
+
+{% block main %}
+
+<div class="block-one">
+	<h3>Чому варто заправлятись у нас?</h3>
+</div>
+
+
+<div class="wrap">
+
+    <div class="bblock">
+        <img src="{% static "app/img/gasoline-prices.jpg" %}" alt="home" />
+        <h2>Низькі ціни</h2>
+    </div>
+
+    <div class="bblock">
+        <img src="{% static "app/img/gasoline-tw.jpg" %}" alt="home" />
+        <h2>Контроль якості</h2>
+    </div>
+
+    <div class="bblock">
+        <img class="imgg" src="{% static "app/img/gasoline-diff.jpg" %}" alt="home" />
+        <h2>Великий асортимент палива</h2>
+    </div>
+
+    <div class="bblock">
+        <img class="imgg" src="{% static "app/img/man-at-gas-station.jpg" %}" alt="home" />
+        <h2>Якісне обслуговування</h2>
+    </div>
+
+</div>
+
+
+	{% if stock %}
+	<h2 class="text-center ">Акція</h2>
+		{% for items in stock %}
+			<div class="container">
+				<h5 class="card-title text-danger text-center ">{{ items.short_text }}</h5>
+			</div>
+		{% endfor %}
+
+
+	{% else %}
+		
+	{% endif %}
+
+
+{% endblock main %}
+
+
+
+{% block about-us %}
+<div class="about-us">
+	<h2>Про нас</h2>
+	<p>SunFuel – це динамічно зростаюча українська автозаправна мережа, яка реалізовує високоякісне імпортне пальне з оптимальним сервісом у low-cost сегменті. Обрана бізнес-модель та значний досвід менеджменту на ринку нафтопродуктів дозволяють Компанії формувати кращі ціни на імпортне пальне в регіонах.</p>
+	<a  href="{% url 'station:about_us'%}" class="btn btn-primary">Більше</a>
+</div>
+{% endblock about-us %}
+
+
+{% block lastdiv %}
+<div class="last-div">
+	<h2>Чому варто обрати нас?</h2>
+
+	<div class="bblock">
+		16
+		<p>років</p>
+	</div>
+
+	<div class="bblock">
+	23
+	<p>партнерів</p>
+	</div>
+
+	<div class="bblock">
+	178
+	<p>проєктів</p>
+	</div>
+
+	<div class="bblock">
+	1976
+	<p>чашок кави</p>
+	</div>
+</div>
+{% endblock lastdiv %}
+
+
+
+
+
+{% block footer %}
+
+<footer class="page-footer font-small blue pt-4">
+
+  <div class="container-fluid text-center text-md-left">
+
+    <div class="row">
+
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <h5 class="text-uppercase">Footer Content</h5>
+        <p>Here you can use rows and columns to organize your footer content.</p>
+
+      </div>
+ 
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="/"> MDBootstrap.com</a>
+  </div>
+
+</footer>
+{% endblock footer %}
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script type="text/javascript">
+	const swiper = new Swiper('.swiper', {
+
+  loop: true,
+
+
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+ 
+});
+</script>
+
+</body>
+
+
+</html>

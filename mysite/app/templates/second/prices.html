@@ -1,0 +1,56 @@
+{% extends 'second/base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Ціни</title>
+{% endblock %}
+
+
+
+
+{% block main %}
+
+<div class="background-image-for-prices">
+	<div class="background-text">
+		<h2>Пальне</h2>
+		<p>На АЗС SUNFUEL завжди якісне пальне. Ми перевіряємо якість нафтопродукту на всіх етапах - від заводу-виробника до автозаправної станції. У мережі АЗС реалізовується пальне виробництва Мозирського НПЗ (Білорусь), НПЗ STAR (Туреччина) та Кременчуцького НПЗ.</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+<h2 style="margin: 10% 0 0 40px;">Ціни на пальне станом на {{ price_date }}</h2>
+
+{% for i in gas %}
+<div class="prices">
+	<div class="prices-price">
+		<h2>{{ i.gas_price }}</h2>
+	</div>
+	<div class="prices-name">
+		<h3>{{ i.gas_name }}</h3>
+	</div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block slider %}
+{% endblock slider%}
+
+{% block about-us %}
+{% endblock about-us %}
+
+{% block lastdiv %}
+{% endblock lastdiv %}

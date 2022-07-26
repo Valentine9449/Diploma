@@ -1,0 +1,169 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.reklama-h5{
+	display: inline-flex;
+    display: -moz-inline-box;
+	display: -ms-inline-flexbox;
+	display: -webkit-inline-flex;
+	align-items: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	justify-content: center;
+	-webkit-justify-content: center;"
+}
+
+
+.logo{
+	border-radius: 50px;
+	width: 90px;
+}
+
+.logo-profile{
+	border-radius: 30px;
+	width: 160px;
+	height: auto;
+	background-color: transparent;
+}
+
+
+.bg-first{
+	background-color: silver;
+}
+
+.bg-second{
+	background-color: #686868;
+}
+
+#footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: grey;
+}
+
+.profile-div{
+	margin-left: 6em;
+	padding-left: 10px;
+	width: 30%;
+	height: 60%;
+	border: 1px solid transparent;
+	border-radius: 30px;
+}
+
+.profile-div img{
+	margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+.profile-div p{
+    text-align: center;
+}
+
+
+
+.about-as{
+	display: inline-block;
+	padding-top: 15px;
+	margin-top: 25px;
+}
+
+.h2-about-us{
+	font-family: 'Secular One', sans-serif;
+	font-weight: 600;
+	font-size: 120px;
+	text-align: center;
+
+}
+
+.h3-about-us{
+	text-align: center;
+	font-family: 'Secular One', sans-serif;
+	font-weight: 600;
+	font-size: 50px;
+}
+
+
+.prices{
+	width: 20%;
+	height: 20%;
+    margin: 0 auto 15% 40px;
+	border: 1px solid black;
+	display: inline-block;
+	text-align: center;
+	font-family: 'Anton', sans-serif;
+                                                
+}
+
+
+.prices-name{
+	width: 100%;
+	height: 100px;
+	color: black;
+	background-color: white;
+}
+
+.prices-price{
+	width: 100%;
+	padding: 20px;
+	height: 100px;
+	color: orangered;
+	background-color: white;
+	font-weight: 600;
+}
+
+
+
+.st-img{
+     background: url("/static/app/img/gas-station-two.jpg") no-repeat;
+     background-size: 100%;
+     width: 100%;
+     height: 60%;
+     color: white;
+     margin-top: 10px;
+     border: 1px solid transparent;
+     border-radius: 10px;
+
+}
+
+.background-image-for-prices{
+	position: relative;
+	margin-bottom: 20px;
+	padding: 30% 0 0 0;
+	background: url("/static/app/img/gas-station-2.jpg") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+}
+
+.background-text{
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 50%;
+	margin-top: 80px;
+	transform: translate(50%, 0);
+	background-color: #222;
+}
+
+
+.background-text p {
+	text-align: center;
+	color: white;
+}
+
+.background-text h2{
+	margin-top: 30px;
+	text-align: center;
+	color: white;
+}

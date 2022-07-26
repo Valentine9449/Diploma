@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Акції</title>
+</head>
+<body>
+	{% if stock %}
+		<h2>Є акції</h2>
+		{% for items in stock %}
+			<h2>{{ items.short_text }}</h2>
+		{% endfor %}
+	{% else %}
+		<h2>Нема</h2>
+	{% endif %}
+
+</body>
+</html>
