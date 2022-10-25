@@ -1,1 +1,1 @@
-# Gas-Diploma
+# Diploma
